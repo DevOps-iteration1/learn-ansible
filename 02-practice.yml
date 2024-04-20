@@ -1,0 +1,17 @@
+- name: Installing a package
+  ansible.builtin.dnf:
+    name: nodejs
+    state: latest
+
+- name: Adding a application user
+  ansible.builtin.user:
+    name: Expense
+    state: absent
+    remove: yes
+
+- name: Creating a file with user name
+  ansible.builtin.file:
+    path: /work
+    owner: root
+    group: root
+    mode: '0644'
